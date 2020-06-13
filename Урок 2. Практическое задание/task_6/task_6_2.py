@@ -7,3 +7,24 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+from random import randint
+
+def Guess_my_num(my_num, score):
+    if score == 10:
+        print('не уложились в 10 попыток! моё число было {}'.format(my_num))
+        exit()
+    your_choice = int(input('Угадай мое число : ' ))
+    score += 1
+    if your_choice == my_num:
+        print('Success!!!')
+        exit()
+    elif your_choice < my_num:
+        print('Моё число побольше будет')
+        return Guess_my_num(my_num, score)
+    elif your_choice > my_num:
+        print('Моё число поменьше будет')
+        return Guess_my_num(my_num, score)
+
+score = 0
+my_num = randint(0, 100)
+Guess_my_num(my_num, score)
