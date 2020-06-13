@@ -5,3 +5,17 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+def Proof_equality_row(my_num, score):
+    if my_num == 0:
+        return print('1+2+...+n = {} '. format(score))
+    else:
+        score += my_num
+        my_num -= 1
+        return Proof_equality_row(my_num, score)
+
+
+score = 0
+my_num = int(input('Введите n: '))
+Proof_equality_row(my_num, score)
+
+print('n(n+1)/2 = {}'.format(int(my_num * (my_num + 1) / 2)))

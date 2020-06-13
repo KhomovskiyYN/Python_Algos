@@ -12,3 +12,15 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+num_of_num= int(input('Сколько будет чисел? - '))
+figure = int(input('Какую цифру считать? - '))
+count = 0
+for i in range(1, num_of_num + 1):  # цикл по числам
+    print('Число {}: '. format(i), end='')
+    nuber = int(input())
+    while nuber > 0:    # цикл по поиску цыфр. каждую итерацию число уменьшается на одну цыфру справа
+        if nuber % 10 == figure:
+            count += 1
+        nuber = nuber // 10
+print("Было введено {} цифр '{}'".format(count, figure) )
