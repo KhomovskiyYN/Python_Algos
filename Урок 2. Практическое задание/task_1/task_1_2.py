@@ -33,7 +33,7 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
-def My_calc():
+def my_calc():
     operation = input('Введите операцию (+, -, *, / или 0 для выхода): ')
     if operation == '0':
         return print('конец программы')
@@ -48,13 +48,13 @@ def My_calc():
             print('Результат {} * {} = {}'.format(first_num, sec_num, first_num * sec_num))
         elif operation == "/":
             print('Результат {} / {} = {}'.format(first_num, sec_num, first_num / sec_num))
-        return My_calc()
+        return my_calc()
     else:
         print('Неверная операция. Повторите ввод')
-        return My_calc()
+        return my_calc()
 
 
 
-My_calc()
+my_calc()
 
 
