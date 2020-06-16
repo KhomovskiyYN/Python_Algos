@@ -10,7 +10,7 @@
 """
 # много лишних переменных - потом оптимизировать!
 
-def My_row(n, origin_num, score, result_num):
+def my_row(n, origin_num, score, result_num):
 
     if n == 0:
         return print('Количество элементов - {}, их сумма - {}'.format(score, result_num))
@@ -19,10 +19,10 @@ def My_row(n, origin_num, score, result_num):
         origin_num  = (origin_num / (-2))
         n -= 1
         score +=1
-        return My_row(n, origin_num, score, result_num)
+        return my_row(n, origin_num, score, result_num)
 
 score = 0
 origin_num = 1
 result_num = 0
 n = int(input('Введите количество элементов: '))
-My_row(n, origin_num, score, result_num)
+my_row(n, origin_num, score, result_num)

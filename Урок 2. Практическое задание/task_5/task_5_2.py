@@ -17,7 +17,7 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
-def Ascii_finding(finish_num):
+def ascii_finding(finish_num):
 
     if finish_num == 128:
         exit()
@@ -26,8 +26,8 @@ def Ascii_finding(finish_num):
         finish_num += 1
         if finish_num % 10 == 2:
             print()
-        return Ascii_finding(finish_num)
+        return ascii_finding(finish_num)
 
 finish_num = 32
-Ascii_finding(finish_num)
+ascii_finding(finish_num)
 
