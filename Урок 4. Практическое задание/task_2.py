@@ -12,3 +12,59 @@
 ВНИМАНИЕ: ЗАДАНИЯ, В КОТОРЫХ БУДУТ ГОЛЫЕ ЦИФРЫ ЗАМЕРОВ (БЕЗ АНАЛИТИКИ)
 БУДУТ ПРИНИМАТЬСЯ С ОЦЕНКОЙ УДОВЛЕТВОРИТЕЛЬНО
 """
+import timeit
+
+def simple(i):
+    """Без использования решета Эратосфена"""
+    n = 1
+    count = 2
+
+    while count <= i:
+        t = 1
+        is_simple = True
+        while t <= n:
+            if n % t ==0 and t != 1 and t != n:
+                is_simple = False
+                break
+            t += 1
+        if is_simple:
+            if count == i:
+                break
+            count += 1
+        n += 1
+    return  n
+
+def eratosfen(i):
+    """Используя алгоритм «Решето Эратосфена»"""
+    n = 2
+    l = 10000
+    sieve = [x for x in range(l)]
+    sieve[1] = 0
+    while n < l:
+        if sieve[n] != 0:
+            m = n * 2
+            while m < l:
+                sieve[m] = 0
+                m += n
+        n += 1
+    return [p for p in sieve if p != 0][i - 1]
+
+
+i = int(input("Введите порядковый номер простого числа: "))
+print(timeit.timeit("simple(i)", setup="from __main__ import simple, i", number=100))
+print(timeit.timeit("eratosfen(i)", setup="from __main__ import eratosfen, i", number=100))
+
+"""
+Решето Эратосфена выгоднее использовать при больших i :
+При i = 10 
+0.0013344220000002238
+0.297959976
+
+При i = 100
+0.17374125500000037
+0.2845915020000005
+
+При i = 1000
+31.256404980000003
+0.3204978619999963
+"""
