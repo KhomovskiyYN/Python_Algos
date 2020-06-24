@@ -17,3 +17,17 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+def ascii_finding(finish_num):
+
+    if finish_num == 128:
+        exit()
+    else:
+        print('{} - {} '.format(finish_num, chr(finish_num)), end='')
+        finish_num += 1
+        if finish_num % 10 == 2:
+            print()
+        return ascii_finding(finish_num)
+
+finish_num = 32
+ascii_finding(finish_num)
+

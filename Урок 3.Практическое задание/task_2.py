@@ -10,3 +10,11 @@
 Пример:
 Исходный массив: [8, 3, 15, 6, 4, 2], результат: [0, 3, 4, 5]
 """
+even = []
+my_list = input('Введите исходный массив: ')
+my_list = my_list.split()
+my_list = [int(i) for i in my_list]
+for i in range(len(my_list)):
+    if  my_list[i] % 2 ==0:
+        even.append(i)
+print(even)

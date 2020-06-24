@@ -10,3 +10,18 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+num_of_num= int(input('Введите количество чисел: '))
+max_sum = 0
+max_num = 0
+for i in range(1, num_of_num + 1):
+    figure = int(input('Введите очередное число: '))
+    summ_fig = 0
+    basic_num = figure
+    while figure > 0:
+        summ_fig += figure % 10
+        figure //= 10
+    if summ_fig > max_sum:
+        max_sum = summ_fig
+        max_num = basic_num
+
+print('Наибольшее число по сумме цифр: {}, сумма его цифр: {}'.format(max_num, max_sum))
