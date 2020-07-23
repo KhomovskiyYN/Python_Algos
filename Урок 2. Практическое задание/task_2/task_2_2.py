@@ -15,3 +15,23 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+'''my_num = int(input('Введите натуральное число'))
+print(my_num // 10)
+print((my_num % 10)% 2)
+'''
+
+def even_and_odd_in_num(my_num, counter_even, counter_odd):
+    if my_num == 0:
+        return print("Количество четных и нечетных цифр в числе равно: ({}, {})".format(counter_even,counter_odd))
+    else:
+        if (my_num % 10)% 2 == 0:
+            counter_even += 1
+        else:
+            counter_odd += 1
+        return even_and_odd_in_num(my_num // 10,counter_even, counter_odd)
+
+
+counter_even = 0    # не знаю как засунуть эти два счетчика в функцию
+counter_odd = 0     # поэтому пришлось вывести их отдельно
+my_num = int(input('Введите натуральное число'))
+even_and_odd_in_num(my_num,counter_even,counter_odd)

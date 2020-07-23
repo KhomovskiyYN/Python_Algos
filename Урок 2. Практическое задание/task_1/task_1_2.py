@@ -33,3 +33,28 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+def my_calc():
+    operation = input('Введите операцию (+, -, *, / или 0 для выхода): ')
+    if operation == '0':
+        return print('конец программы')
+    elif operation == "+" or operation == "-" or operation == "*" or operation == "/":
+        first_num = int(input('Введите первое число: '))
+        sec_num = int(input('Введите второе число: '))
+        if operation == "+":
+            print('Результат {} + {} = {}'.format(first_num, sec_num, first_num + sec_num))
+        elif operation == "-":
+            print('Результат {} - {} = {}'.format(first_num, sec_num, first_num - sec_num))
+        elif operation == "*":
+            print('Результат {} * {} = {}'.format(first_num, sec_num, first_num * sec_num))
+        elif operation == "/":
+            print('Результат {} / {} = {}'.format(first_num, sec_num, first_num / sec_num))
+        return my_calc()
+    else:
+        print('Неверная операция. Повторите ввод')
+        return my_calc()
+
+
+
+my_calc()
+
+

@@ -25,3 +25,35 @@
 
 Предприятия, с прибылью ниже среднего значения: Копыта
 """
+
+from collections import namedtuple
+
+# нужно через цикл заполнить данными namedtuple
+# и все предприятия загнать в список
+comp_list = []
+num_comp = int(input('Введите количество предприятий для расчета прибыли: '))
+
+for i in range(num_comp):
+    companys = namedtuple('Company', 'Name first second third fourth')
+    name_comp = input('Введите название предприятия: ')
+    comp_profit = input('через пробел введите прибыль данного предприятия за каждый квартал(Всего 4 квартала):').split()
+    comp = companys(Name=name_comp, first=comp_profit[0], second=comp_profit[1], third=comp_profit[2], fourth=comp_profit[3])
+    comp_list.append(comp)
+    #print(comp)
+print(comp_list)
+
+aver_sum = 0
+
+for i in comp_list:
+    sum_in_comp = int(i.first) + int(i.second) + int(i.third) + int(i.fourth)
+    aver_sum +=sum_in_comp
+aver_sum = aver_sum / num_comp
+print('Средняя годовая прибыль всех предприятий: ', (aver_sum))
+
+for i in comp_list:
+     if (int(i.first) + int(i.second) + int(i.third) + int(i.fourth)) > aver_sum:
+         print('Предприятия, с прибылью выше среднего значения: ', i.Name)
+
+for i in comp_list:
+     if (int(i.first) + int(i.second) + int(i.third) + int(i.fourth)) < aver_sum:
+        print('Предприятия, с прибылью ниже среднего значения: ', i.Name)

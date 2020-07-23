@@ -8,3 +8,14 @@
 Базовый список: [-55, -69, -5, 72, -41, -58, -79, 58, 74, 1]
 Максимальный отрицательный элемент в данном массиве = -5, его индекс 2
 """
+my_list = input('Введите исходный массив: ')
+my_list = my_list.split()
+my_list = [int(i) for i in my_list]
+
+index = -1
+for i in range(len(my_list)):
+    if  my_list[i] < 0 and index == -1:
+        index = i
+    elif my_list[i] < 0 and my_list[i] >my_list[index]:
+        index = i
+print('Максимальный отрицательный элемент в данном массиве = {}, его индекс {}'.format(my_list[index],index+1))
